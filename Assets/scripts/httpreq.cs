@@ -30,7 +30,7 @@ public class httpreq : MonoBehaviour
         // Safety check to ensure the outputText object is assigned
         if (outputText == null)
         {
-            Debug.LogError("🔴 outputText (TextMeshPro) is not assigned in the Inspector! Cannot display output.");
+            Debug.LogError("outputText (TextMeshPro) is not assigned in the Inspector! Cannot display output.");
             return;
         }
         
@@ -59,9 +59,9 @@ public class httpreq : MonoBehaviour
                 string officeHour = match.Groups[3].Value.Trim();
 
                 // 3. Format the results
-                string resultText = $"Name: **{name}**\n" +
-                                    $"Room: **{room}**\n" +
-                                    $"Time: **{officeHour}**";
+                string resultText = $"Name: {name}\n" +
+                                    $"Room: {room}\n" +
+                                    $"Time: {officeHour}";
                 
                 // 4. Update the TextMeshPro object
                 outputText.text = resultText;
@@ -70,7 +70,7 @@ public class httpreq : MonoBehaviour
             else
             {
                 // Update the TextMeshPro object with the error
-                outputText.text = "❌ Error: Could not parse details using Regex.";
+                outputText.text = "Error: Could not parse details using Regex.";
                 Debug.LogError("Regex failed to find all three fields (Name, Room, Time).");
             }
         }
